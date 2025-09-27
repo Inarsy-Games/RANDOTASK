@@ -24,10 +24,17 @@ if can_type {
 	if keyboard_check_pressed(vk_enter) {
 	
 		with oTaskManager {
-			if keyboard_string != "" {
-				ds_list_add(tasks, keyboard_string);	
-				keyboard_string = "";
 			
+			if keyboard_string != "" {
+				
+			var _file = file_text_open_write(working_directory + "hiscore.txt");
+			file_text_write_string(_file, keyboard_string);
+			file_text_writeln(_file);
+			file_text_close(_file);
+				
+				keyboard_string = "";
+				
+				//change text to a cool positive message maybe
 				if irandom_range(1, 5) == 5 {
 					entering_tasks_index = irandom(array_length(entering_tasks_text)-1);	
 				}

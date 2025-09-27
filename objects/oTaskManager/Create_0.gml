@@ -1,4 +1,4 @@
-tasks = ds_list_create();
+tasks = [];
 task_index = 0;
 show_task = false;
 task_streak = 0;
